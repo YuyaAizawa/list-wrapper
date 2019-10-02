@@ -3,7 +3,7 @@
     "name": "YuyaAizawa/list-wrapper",
     "summary": "Data structure implemented by simple list",
     "license": "MIT",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "exposed-modules": [
         "ListWrapper.Dict",
         "ListWrapper.Set"

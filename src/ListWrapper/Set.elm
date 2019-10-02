@@ -58,10 +58,10 @@ insert : e -> Set e -> Set e
 insert element set =
   if member element set
   then
+    set
+  else
     let (Set list) = set in
     Set (element :: list)
-  else
-    set
 
 
 {-| Remove a value from a set. If the value is not found, no changes are made.

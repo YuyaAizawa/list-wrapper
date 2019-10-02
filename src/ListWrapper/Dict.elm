@@ -72,7 +72,7 @@ getHelp key list =
     ( k, v ) :: tl ->
       if k == key
       then Just v
-      else getHelp key list
+      else getHelp key tl
 
 
 {-| Determine if a key is in a dictionary. -}
@@ -113,12 +113,13 @@ insertHelp : k -> v -> Wraped k v -> Wraped k v -> Wraped k v
 insertHelp key value rest result =
   case rest of
     [] ->
-      result
+      ( key, value ) :: result
 
-    ( k, v ) :: tl ->
+    hd :: tl ->
+      let ( k, v ) = hd in
       if k == key
       then ( key, value ) :: result ++ tl
-      else insertHelp key value tl (( k, v ) :: result)
+      else insertHelp key value tl (hd :: result)
 
 
 {-| Remove a key-value pair from a dictionary. If the key is not found,
